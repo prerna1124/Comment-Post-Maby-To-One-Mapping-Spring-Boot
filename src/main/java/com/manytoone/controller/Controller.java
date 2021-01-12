@@ -1,6 +1,7 @@
 package com.manytoone.controller;
 
 import com.manytoone.model.Post;
+import com.manytoone.service.ResourceNotFoundException;
 import com.manytoone.service.ServiceClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,5 +31,10 @@ public class Controller {
     @GetMapping("/findAll")
     public List<Post> getAllPosts(){
         return service.getAllPosts();
+    }
+
+    @PostMapping("deleteById/{id}")
+    public void deletePostById(@PathVariable long id) throws ResourceNotFoundException {
+        service.deletePostById(id);
     }
 }

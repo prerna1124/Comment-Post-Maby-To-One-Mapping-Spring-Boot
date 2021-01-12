@@ -28,4 +28,8 @@ public class ServiceClass {
     public List<Post> getAllPosts() {
         return repo.findAll();
     }
+
+    public void deletePostById(long id) throws ResourceNotFoundException{
+        repo.deleteById(id);
+    }
 }
