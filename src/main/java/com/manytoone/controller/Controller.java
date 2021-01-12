@@ -37,4 +37,9 @@ public class Controller {
     public void deletePostById(@PathVariable long id) throws ResourceNotFoundException {
         service.deletePostById(id);
     }
+
+    @PostMapping("/updatePostById/{id}")
+    public Post updatePostById(@RequestBody Post post,@PathVariable long id){
+        return service.updatePostById(post,id);
+    }
 }

@@ -32,4 +32,13 @@ public class ServiceClass {
     public void deletePostById(long id) throws ResourceNotFoundException{
         repo.deleteById(id);
     }
+
+    public Post updatePostById(Post post, long id) {
+        Post existingPost = repo.findById(id).get();
+        if(post.getDescription()!=null)
+            existingPost.setDescription(post.getDescription());
+        if(post.getTitle()!=null)
+            existingPost.setTitle(post.getTitle());
+        return repo.save(existingPost);
+    }
 }
